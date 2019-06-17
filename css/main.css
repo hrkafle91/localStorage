@@ -1,0 +1,23 @@
+/* Local Storage */
+.gridArea {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas:
+	"students report"
+	;
+	grid-gap: 5px;
+}
+
+.students {grid-area: students;}
+#report {grid-area: report; }
+
+.group {display: flex;}
+label {flex: 1;}
+input {flex: 2;}
+
+#report {
+	border: thick solid black;
+	padding: 0px 20px 0px 20px;
+	background-color: rgba(0,0,255, 0.25);
+	font-size: 1.25em;
+}

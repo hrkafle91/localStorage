@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Container for flexboxes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create four equal columns */
+.column {
+  flex: 50%;
+  padding: 20px;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column {
+    flex: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
+</style>
+<link href="css/main.css" rel="stylesheet">
+<script src="js/localStorage.js"></script>
+</head>
+<body>
+
+
+<div class="row">
+  <div class="column">
+  <fieldset id="s1">
+    <legend>guest #1</legend>
+				<p class="group"><label for="gname1">guest Name</label>
+				<input type="text" name="gname1" id="gname1" value="John Doe"></p>
+				<p class="group"><label for="gid1">guest ID</label>
+				<input type="text" name="gid1" id="gid1" value="991222333"></p>	
+				<p class="group"><label for="food1">guest Food Amount</label>
+				<input type="number" name="food1" id="food1" value="145.00"></p>	
+				<p class="group"><label for="tip1">guest Tip</label>
+				<input type="number" name="tip1" id="tip1" value="5.00"></p>	
+				<p class="group"><label for="discount1">guest Discount Amount</label>
+				<input type="number" name="discount1" id="discount1" value="10.00"></p>
+</fieldset>				
+  </div>
+  
+  <div class="column">
+    <fieldset id="s2">
+				<legend>guest #2</legend>
+				<p class="group"><label for="gname2">guest Name</label>
+				<input type="text" name="gname2" id="gname2" value="Jane Doe"></p>
+				<p class="group"><label for="gid2">guest ID</label>
+				<input type="text" name="gid2" id="gid2" value="991333444"></p>	
+				<p class="group"><label for="food2">guest Food Amount</label>
+				<input type="number" name="food2" id="food2" value="148.00"></p>	
+				<p class="group"><label for="tip2">guest Tip</label>
+				<input type="number" name="tip2" id="tip2" value="2.50"></p>	
+				<p class="group"><label for="discount2">guest Discount Amount</label>
+				<input type="number" name="discount2" id="discount2" value="5.00"></p>					
+			</fieldset>
+  </div>
+  
+  <div class="column">
+    <fieldset>
+				<p><button onclick="saveData()" id="saveData">Save guest data to Local Storage / Must be done before a report can be issued</button></p>
+				<label>Select a guest based on guest ID</label>
+				<!-- optional: disable select until values are saved in localStorage -->
+				<select id="select" onchange="makeReport()"> 
+					<optgroup label="Use down arrow to select a guest">
+						<option></option>
+					</optgroup>
+				</select>
+			</fieldset>
+  </div>
+  
+  <div class="column">
+    <section id="report">
+			<h1>guest Payment Report</h1>
+			<p class="group"><label for="outid">guest ID</label>
+			<input type="text" name="outid" id="outid"></p>
+			<p class="group"><label for="outname">guest Name</label>
+			<input type="text" name="outname" id="outname"></p>
+			<p class="group"><label for="outamount">Final Amount Owed</label>
+			<input type="number" name="outamount" id="outamount"></p>
+			<h4>&copy; Sheridan College</h4>
+			<button id="printData" onclick="printData()">PRINT</button>
+		</section>
+  </div>
+</div>
+
+</body>
+</html>
